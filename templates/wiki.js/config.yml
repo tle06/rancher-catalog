@@ -1,8 +1,8 @@
-name: # Name of the Catalog Entry
+name: Wiki.js
 description: |
-  # Description of the Catalog Entry
-version: # Version of the Catalog to be used
-category: # Category to be used for searching catalog entries
-maintainer: # The maintainer of the catalog entry
-license: # The license
-projectURL: # A URL related to the catalog entry
+  An open source, modern and powerful wiki app built on Node.js, Git and Markdown.
+version: 1.0.78-rancher1
+category: Documentation
+maintainer: "TLE06 <tle@tlnk.fr>"
+license: MIT
+projectURL: https://github.com/Requarks/wiki
