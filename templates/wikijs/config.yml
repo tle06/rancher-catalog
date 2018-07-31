@@ -1,8 +1,8 @@
-name: Wiki.js
+name: Wiki-js
 description: |
   An open source, modern and powerful wiki app built on Node.js, Git and Markdown.
 version: 1.0.78-rancher1
 category: Documentation
 maintainer: "TLE06 <tle@tlnk.fr>"
 license: MIT
-projectURL: https://github.com/Requarks/wiki
+projectURL: https://github.com/tle06/rancher-catalog

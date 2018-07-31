@@ -1,5 +1,5 @@
 .catalog:
-  name: Wiki.js
+  name: Wiki-js
   version: 1.0.78-rancher1
   description: An open source, modern and powerful wiki app built on Node.js, Git and Markdown.
   uuid: 1.0.78
