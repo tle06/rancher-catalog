@@ -1,17 +1,25 @@
 version: '2'
 volumes:
-  wiki-config:
+  ${volume_wiki_config}:
+    {{- if ne .Values.volume_driver "local"}}
     external: true
-    driver: rancher-nfs
-  wiki-data:
+    {{- end}}
+    driver: ${volume_driver}
+  ${volume_wiki_data}:
+    {{- if ne .Values.volume_driver "local"}}
     external: true
-    driver: rancher-nfs
-  wiki-db:
+    {{- end}}
+    driver: ${volume_driver}
+  ${volume_mongo}:
+    {{- if ne .Values.volume_driver "local"}}
     external: true
-    driver: rancher-nfs
-  wiki-repo:
+    {{- end}}
+    driver: ${volume_driver}
+  ${volume_wiki_repo}:
+    {{- if ne .Values.volume_driver "local"}}
     external: true
-    driver: rancher-nfs
+    {{- end}}
+    driver: ${volume_driver}
 services:
   wiki:
     image: requarks/wiki
@@ -19,31 +27,30 @@ services:
       WIKI_ADMIN_EMAIL: ${wiki_admin_email}
     stdin_open: true
     volumes:
-    - wiki-data:/var/wiki/data
-    - wiki-config:/var/wiki/config
-    - wiki-repo:/var/wiki/repo
+    - ${volume_wiki_data}:/var/wiki/data
+    - ${volume_wiki_config}:/var/wiki/config
+    - ${volume_wiki_repo}:/var/wiki/repo
     tty: true
     links:
     - wiki-db:db
     ports:
-    - 52827:80/tcp
+    - ${host_port}:80/tcp
     labels:
-      traefik.frontend.rule: Host:docs.tlnk.fr
+    {{- if eq .Values.traefik_integration "true"}}
+      traefik.frontend.rule: Host:${traefik_frontend_rule}
       traefik.enable: 'true'
-      traefik.backend: wiki
-      traefik.frontend.errors.error.backend: error
-      traefik.frontend.errors.error.status: 400-599
-      traefik.frontend.errors.error.query: /index.html
+      traefik.backend: ${traefik_backend}
       traefik.port: '80'
+    {{- end}}
       io.rancher.container.pull_image: always
   wiki-db:
     image: mongo
     stdin_open: true
     volumes:
-    - wiki-db:/data/db
+    - ${volume_mongo}:/data/db
     tty: true
     ports:
-    - 54080:27017/tcp
+    - ${mongo_port}:27017/tcp
     command:
     - --smallfiles
     - --bind_ip
