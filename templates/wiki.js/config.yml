@@ -1,9 +1,8 @@
-#template
-name: Wiki.js
-description: >
-  Deploy wiki.js instence with a mongo db to store the data
-version: 1.0.78
-category: Documentation
-maintainer: tle06 <tle@tlnk.fr>
-license: MIT
-projectURL: https://github.com/tle06/rancher-catalog
+name: # Name of the Catalog Entry
+description: |
+  # Description of the Catalog Entry
+version: # Version of the Catalog to be used
+category: # Category to be used for searching catalog entries
+maintainer: # The maintainer of the catalog entry
+license: # The license
+projectURL: # A URL related to the catalog entry
