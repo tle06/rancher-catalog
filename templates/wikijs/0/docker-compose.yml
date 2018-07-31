@@ -16,7 +16,7 @@ services:
   wiki:
     image: requarks/wiki
     environment:
-      WIKI_ADMIN_EMAIL: support@tlnk.fr
+      WIKI_ADMIN_EMAIL: ${wiki_admin_email}
     stdin_open: true
     volumes:
     - wiki-data:/var/wiki/data

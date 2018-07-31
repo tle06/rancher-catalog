@@ -5,3 +5,10 @@
   uuid: 1.0.78
   minimum_rancher_version: 1.6.17
   questions: #Used to request user input for configuration options
+      - variable: "wiki_admin_email"
+      label: "Choose the email address for the main admin:"
+      description: |
+        This email will be use to build the first user for local authentication with default password admin123.
+      default: admin@local.lan
+      required: true
+      type: string
