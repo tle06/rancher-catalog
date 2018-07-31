@@ -1,14 +1,14 @@
-.catalog:
+version: '2'
+catalog:
   name: Wiki-js
   version: 1.0.78-rancher1
   description: An open source, modern and powerful wiki app built on Node.js, Git and Markdown.
   uuid: 1.0.78
   minimum_rancher_version: 1.6.17
   questions: #Used to request user input for configuration options
-      - variable: "wiki_admin_email"
+    - variable: "wiki_admin_email"
       label: "Choose the email address for the main admin:"
-      description: |
-        This email will be use to build the first user for local authentication with default password admin123.
-      default: admin@local.lan
+      description: "This email will be use to build the first user for local authentication with default password admin123"
+      default: "admin@local.lan"
       required: true
-      type: string
+      type: "string"
