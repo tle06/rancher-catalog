@@ -1,0 +1,52 @@
+version: '2'
+volumes:
+  wiki-config:
+    external: true
+    driver: rancher-nfs
+  wiki-data:
+    external: true
+    driver: rancher-nfs
+  wiki-db:
+    external: true
+    driver: rancher-nfs
+  wiki-repo:
+    external: true
+    driver: rancher-nfs
+services:
+  wiki:
+    image: requarks/wiki
+    environment:
+      WIKI_ADMIN_EMAIL: support@tlnk.fr
+    stdin_open: true
+    volumes:
+    - wiki-data:/var/wiki/data
+    - wiki-config:/var/wiki/config
+    - wiki-repo:/var/wiki/repo
+    tty: true
+    links:
+    - wiki-db:db
+    ports:
+    - 52827:80/tcp
+    labels:
+      traefik.frontend.rule: Host:docs.tlnk.fr
+      traefik.enable: 'true'
+      traefik.backend: wiki
+      traefik.frontend.errors.error.backend: error
+      traefik.frontend.errors.error.status: 400-599
+      traefik.frontend.errors.error.query: /index.html
+      traefik.port: '80'
+      io.rancher.container.pull_image: always
+  wiki-db:
+    image: mongo
+    stdin_open: true
+    volumes:
+    - wiki-db:/data/db
+    tty: true
+    ports:
+    - 54080:27017/tcp
+    command:
+    - --smallfiles
+    - --bind_ip
+    - wiki-db
+    labels:
+      io.rancher.container.pull_image: always
