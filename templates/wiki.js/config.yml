@@ -1,0 +1,8 @@
+name: Wiki.js
+description: >
+  Deploy wiki.js instence with a mongo db to store the data
+version: 1.0.78
+category: Documentation
+maintainer: tle06 <tle@tlnk.fr>
+license: MIT
+projectURL: https://github.com/tle06/rancher-catalog
