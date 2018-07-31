@@ -1,3 +1,4 @@
+#template
 name: Wiki.js
 description: >
   Deploy wiki.js instence with a mongo db to store the data
