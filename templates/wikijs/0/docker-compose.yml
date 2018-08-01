@@ -1,21 +1,21 @@
 version: '2'
 volumes:
-  {volume_wiki_config}:
+  ${volume_wiki_config}:
     {{- if ne .Values.volume_driver "local"}}
     external: true
     {{- end}}
     driver: ${volume_driver}
-  {volume_wiki_data}:
+  ${volume_wiki_data}:
     {{- if ne .Values.volume_driver "local"}}
     external: true
     {{- end}}
     driver: ${volume_driver}
-  {volume_mongo}:
+  ${volume_mongo}:
     {{- if ne .Values.volume_driver "local"}}
     external: true
     {{- end}}
     driver: ${volume_driver}
-  {volume_wiki_repo}:
+  ${volume_wiki_repo}:
     {{- if ne .Values.volume_driver "local"}}
     external: true
     {{- end}}
