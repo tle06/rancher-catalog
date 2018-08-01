@@ -1,6 +1,6 @@
 version: '2'
 volumes:
-  ${volume_wiki_config}:
+  $${volume_wiki_config}:
     {{- if ne .Values.volume_driver "local"}}
     external: true
     {{- end}}
