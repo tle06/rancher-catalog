@@ -47,7 +47,7 @@ catalog:
       required: true
       type: "int"
     - variable: "volume_mongo"
-      label: ""Choose where to bind the mongo volume:"
+      label: "Choose where to bind the mongo volume:"
       description: "to bind <your folder>:/data/db"
       default: "wiki-db"
       required: true
