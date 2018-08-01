@@ -70,7 +70,7 @@ catalog:
     - variable: "traefik_frontend_rule"
       label: "traefik.frontend.rule:"
       description: ""
-      default: "Host:wikijs.local.lan"
+      default: "wikijs.local.lan"
       required: false
       type: "string"
     - variable: "traefik_backend"
