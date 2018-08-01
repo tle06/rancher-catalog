@@ -5,7 +5,7 @@ catalog:
   description: An open source, modern and powerful wiki app built on Node.js, Git and Markdown.
   minimum_rancher_version: 1.6.17
   questions:
-      - variable: "volume_driver"
+    - variable: "volume_driver"
       description: "The volume driver shared to store data"
       label: "Volume Driver"
       required: true
