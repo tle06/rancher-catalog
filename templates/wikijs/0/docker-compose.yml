@@ -5,11 +5,13 @@ volumes:
     external: true
     {{- end}}
     driver: ${volume_driver}
+{{- if ne .Values.volume_wiki_data ""}}
   ${volume_wiki_data}:
     {{- if ne .Values.volume_driver "local"}}
     external: true
     {{- end}}
     driver: ${volume_driver}
+{{- end}}
   ${volume_mongo}:
     {{- if ne .Values.volume_driver "local"}}
     external: true
