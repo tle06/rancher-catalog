@@ -1,0 +1,40 @@
+version: '2'
+volumes:
+  ${volume_grav_config}:
+    {{- if ne .Values.volume_driver "local"}}
+    external: true
+    {{- end}}
+    driver: ${volume_driver}
+services:
+  grav:
+    image: tlnk/grav
+    environment:
+    {{- if ne .Values.PHP_UPLOAD_MAX_FILESIZE ""}}
+     PHP_UPLOAD_MAX_FILESIZE: ${PHP_UPLOAD_MAX_FILESIZE}
+    {{- end}}
+    {{- if ne .Values.PHP_POST_MAX_SIZE ""}}
+     PHP_UPLOAD_MAX_FILESIZE: ${PHP_POST_MAX_SIZE}
+    {{- end}}
+    {{- if ne .Values.PHP_MEMORY_LIMIT ""}}
+     PHP_UPLOAD_MAX_FILESIZE: ${PHP_MEMORY_LIMIT}
+    {{- end}}
+    {{- if ne .Values.PHP_FILE_UPLOAD ""}}
+     PHP_UPLOAD_MAX_FILESIZE: ${PHP_FILE_UPLOAD}
+    {{- end}}
+    {{- if ne .Values.PHP_ALLOW_URL ""}}
+     PHP_UPLOAD_MAX_FILESIZE: ${PHP_ALLOW_URL}
+    {{- end}}
+    stdin_open: true
+    volumes:
+    - ${volume_grav_data}:/var/wiki/data
+    tty: true
+    ports:
+    - ${host_port}:80/tcp
+    labels:
+    {{- if eq .Values.traefik_integration "true"}}
+      traefik.frontend.rule: Host:${traefik_frontend_rule}
+      traefik.enable: 'true'
+      traefik.backend: ${traefik_backend}
+      traefik.port: '80'
+    {{- end}}
+      io.rancher.container.pull_image: always

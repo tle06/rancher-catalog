@@ -1,0 +1,85 @@
+version: '2'
+catalog:
+  name: grav
+  version: 1.4.8-rancher1
+  description: Grav is a Fast, Simple, and Flexible, file-based Web-platform. There is Zero installation required. Just extract the ZIP archive, and you are already up and running. It follows similar principles to other flat-file CMS platforms, but has a different design philosophy than most. Grav comes with a powerful Package Management System to allow for simple installation and upgrading of plugins and themes, as well as simple updating of Grav itself.
+  minimum_rancher_version: 1.6.17
+  questions:
+    - variable: "volume_driver"
+      description: "The volume driver shared to store data"
+      label: "Volume Driver"
+      required: true
+      default: "rancher-nfs"
+      type: enum
+      options:
+        - local
+        - rancher-nfs
+        - rancher-efs
+        - rancher-ebs
+    - variable: "PHP_UPLOAD_MAX_FILESIZE"
+      label: "PHP_UPLOAD_MAX_FILESIZE:"
+      description: ""
+      default: "2M"
+      required: false
+      type: "string"
+    - variable: "PHP_POST_MAX_SIZE"
+      label: "PHP_POST_MAX_SIZE:"
+      description: ""
+      default: "8M"
+      required: false
+      type: "string"
+    - variable: "PHP_MEMORY_LIMIT"
+      label: "PHP_MEMORY_LIMIT:"
+      description: ""
+      default: "128M"
+      required: false
+      type: "string"
+    - variable: "PHP_FILE_UPLOAD"
+      label: "PHP_FILE_UPLOAD:"
+      description: ""
+      default: "On"
+      required: false
+      type: "string"
+    - variable: "PHP_ALLOW_URL"
+      label: "PHP_ALLOW_URL:"
+      description: ""
+      default: "On"
+      required: false
+      type: "string"
+    - variable: "volume_grav_data"
+      label: "Choose where to bind the data volume:"
+      description: "to bind <your folder>:/var/www/grav"
+      default: "grav-data"
+      required: true
+      type: "string"
+    - variable: "host_port"
+      label: "Which port should be used:"
+      description: "service will be bind to <port>:80/tcp"
+      default: 52827
+      required: true
+      type: "int"
+    - variable: "traefik_integration"
+      label: "Enable trafic integration:"
+      description: "Will add traefik.frontend.rule & traefik_backend & traefik.enable: true & traefik.port: 80"
+      default: true
+      required: true
+      type: enum
+      options:
+        - true
+        - false
+    - variable: "traefik_frontend_rule"
+      label: "traefik.frontend.rule:"
+      description: ""
+      default: "grav.local.lan"
+      required: false
+      type: "string"
+    - variable: "traefik_backend"
+      label: "traefik.backend"
+      description: ""
+      default: "grav"
+      required: false
+      type: "string"
+services:
+  grav:
+    scale: 1
+    start_on_create: true
