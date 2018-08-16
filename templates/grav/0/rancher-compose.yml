@@ -38,14 +38,18 @@ catalog:
       label: "PHP_FILE_UPLOAD:"
       description: ""
       default: "On"
-      required: false
-      type: "string"
+      type: enum
+      options:
+        - On
+        - Off
     - variable: "PHP_ALLOW_URL"
       label: "PHP_ALLOW_URL:"
       description: ""
       default: "On"
-      required: false
-      type: "string"
+      type: enum
+      options:
+        - On
+        - Off
     - variable: "volume_grav_data"
       label: "Choose where to bind the data volume:"
       description: "to bind <your folder>:/var/www/grav"
@@ -55,7 +59,7 @@ catalog:
     - variable: "host_port"
       label: "Which port should be used:"
       description: "service will be bind to <port>:80/tcp"
-      default: 52827
+      default: 52837
       required: true
       type: "int"
     - variable: "traefik_integration"
