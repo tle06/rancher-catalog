@@ -7,7 +7,7 @@ volumes:
     driver: ${volume_driver}
 services:
   grav:
-    image: tlnk/grav
+    image: tlnk/docker-grav
     environment:
     {{- if ne .Values.PHP_UPLOAD_MAX_FILESIZE ""}}
      PHP_UPLOAD_MAX_FILESIZE: ${PHP_UPLOAD_MAX_FILESIZE}
