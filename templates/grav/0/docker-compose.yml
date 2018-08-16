@@ -13,16 +13,16 @@ services:
      PHP_UPLOAD_MAX_FILESIZE: ${PHP_UPLOAD_MAX_FILESIZE}
     {{- end}}
     {{- if ne .Values.PHP_POST_MAX_SIZE ""}}
-     PHP_UPLOAD_MAX_FILESIZE: ${PHP_POST_MAX_SIZE}
+     PHP_POST_MAX_SIZE: ${PHP_POST_MAX_SIZE}
     {{- end}}
     {{- if ne .Values.PHP_MEMORY_LIMIT ""}}
-     PHP_UPLOAD_MAX_FILESIZE: ${PHP_MEMORY_LIMIT}
+     PHP_MEMORY_LIMIT: ${PHP_MEMORY_LIMIT}
     {{- end}}
     {{- if ne .Values.PHP_FILE_UPLOAD ""}}
-     PHP_UPLOAD_MAX_FILESIZE: ${PHP_FILE_UPLOAD}
+     PHP_FILE_UPLOAD: ${PHP_FILE_UPLOAD}
     {{- end}}
     {{- if ne .Values.PHP_ALLOW_URL ""}}
-     PHP_UPLOAD_MAX_FILESIZE: ${PHP_ALLOW_URL}
+     PHP_ALLOW_URL: ${PHP_ALLOW_URL}
     {{- end}}
     stdin_open: true
     volumes:
