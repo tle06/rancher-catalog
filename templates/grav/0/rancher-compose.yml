@@ -40,16 +40,16 @@ catalog:
       default: "On"
       type: enum
       options:
-        - On
-        - Off
+        - "On"
+        - "Off"
     - variable: "PHP_ALLOW_URL"
       label: "PHP_ALLOW_URL:"
       description: ""
       default: "On"
       type: enum
       options:
-        - On
-        - Off
+        - "On"
+        - "Off"
     - variable: "volume_grav_data"
       label: "Choose where to bind the data volume:"
       description: "to bind <your folder>:/var/www/grav"
