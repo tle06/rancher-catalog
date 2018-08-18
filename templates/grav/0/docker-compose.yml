@@ -26,7 +26,7 @@ services:
     {{- end}}
     stdin_open: true
     volumes:
-    - ${volume_grav_data}:/var/wiki/data
+    - ${volume_grav_data}:/var/www/grav
     tty: true
     ports:
     - ${host_port}:80/tcp
