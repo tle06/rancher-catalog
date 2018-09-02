@@ -22,7 +22,7 @@ volumes:
     driver: ${volume_driver}
 services:
   wiki:
-    image: requarks/wiki
+    image: tlnk/docker-wikijs
     environment:
       WIKI_ADMIN_EMAIL: ${wiki_admin_email}
     stdin_open: true
