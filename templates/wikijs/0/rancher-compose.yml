@@ -22,6 +22,12 @@ catalog:
       default: "admin@local.lan"
       required: true
       type: "string"
+      - variable: "connection_string"
+      label: "Mongo DB connectino string:"
+      description: "Format should follow this mongodb://localhost:27017/wiki"
+      default: "mongodb://localhost:27017/wiki"
+      required: true
+      type: "string"
     - variable: "volume_wiki_data"
       label: "Choose where to bind the data volume:"
       description: "to bind <your folder>:/var/wiki/data"

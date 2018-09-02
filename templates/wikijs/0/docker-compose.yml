@@ -25,6 +25,7 @@ services:
     image: tlnk/docker-wikijs
     environment:
       WIKI_ADMIN_EMAIL: ${wiki_admin_email}
+      W_DB_CONNECTION_STRING: ${connection_string}
     stdin_open: true
     volumes:
     - ${volume_wiki_data}:/var/wiki/data
