@@ -1,2 +1,2 @@
 # rancher-catalog
-catalog for rancher
+catalog for rancher by TLNK
