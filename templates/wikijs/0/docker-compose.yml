@@ -26,6 +26,7 @@ services:
     environment:
       WIKI_ADMIN_EMAIL: ${wiki_admin_email}
       W_DB_CONNECTION_STRING: ${connection_string}
+      W_HOST: ${wiki_host}
     stdin_open: true
     volumes:
     - ${volume_wiki_data}:/var/wiki/data

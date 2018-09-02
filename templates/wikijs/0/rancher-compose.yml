@@ -28,6 +28,12 @@ catalog:
       default: "mongodb://localhost:27017/wiki"
       required: true
       type: "string"
+      - variable: "wiki_host"
+      label: "Host name:"
+      description: "url like http://localhost"
+      default: "http://localhost"
+      required: true
+      type: "string"
     - variable: "volume_wiki_data"
       label: "Choose where to bind the data volume:"
       description: "to bind <your folder>:/var/wiki/data"
